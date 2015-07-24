@@ -1,0 +1,10 @@
+{
+    "attributes": {
+        "aria-expanded": {
+            "context": "a"
+        }
+    },
+    "elements": {
+        "template": {}
+    }
+}

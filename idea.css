@@ -1,0 +1,10 @@
+/* CSS declarations go here */
+.grid-test{
+    height: 40px;
+    border: 1px solid gray;
+    background-color: aliceblue;
+}
+
+ul li{
+    list-style-type: none;
+}
