@@ -15,13 +15,18 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Plaćanja <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Novi nalog</a></li>
+                        <li><a href="{{pathFor 'nalog'}}">Novi nalog</a></li>
                         <li><a href="#">Mjenjačnica</a></li>
                     </ul>
                 </li>
                 <li class="active"><a href="#">Štednja <span class="sr-only">(current)</span></a></li>
-                <li class="active"><a href="#">Kartice <span class="sr-only">(current)</span></a></li>
-                <li class="active"><a href="#">Postavke <span class="sr-only">(current)</span></a></li>
+                <li class="active"><a href="#">Kartice <span class="sr-only">(current)</span></a></li>               
+                <li class="navbar-header dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Postavke <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{{pathFor 'osobniPodaci'}}">Osobni podaci</a></li>
+                    </ul>
+                </li>
             </ul>
 
             <ul class="col-xs-offset-8">                   

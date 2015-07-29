@@ -1,0 +1,198 @@
+<template name="nalog">
+    <div class="row">
+        <div class="span6"> 
+            <fieldset> 
+                <legend data-bind="text: $parent.payerSectionTitle" style="margin-bottom:20px">Platitelj</legend> 
+                <!-- payerName --> 
+                <div class="row"> 
+                    <div class="span2"> 
+                        <label class="control-label" for="payerName" data-bind="text: $parent.payerNameTitle">Platitelj</label> 
+                    </div> 
+                    <div class="control-group" data-validationelement="paymentOrder.fromParty.fullName" data-bind="validationElement: paymentOrder.fromParty.fullName"> 
+                        <div class="controls"> 
+                            <div class="span4"> 
+                                <input type="text" id="payerName" data-bind="value: paymentOrder.fromParty.fullName, enable: !$root.uneditablePayerData(), validationTooltip: paymentOrder.fromParty.fullName" class="input-block-level small small" maxlength="35" data-original-title="" title=""> 
+                            </div> 
+                        </div> 
+                    </div> 
+                </div> 
+                <!-- END payerName --> 
+                <!-- payerAddress --> 
+                <div class="row"> 
+                    <div class="span2"> 
+                        <label class="control-label" for="payerAddress" data-bind="text: $parent.payerAddressTitle">Adresa</label> 
+                    </div> 
+                    <div class="control-group" data-validationelement="paymentOrder.fromParty.address.street" data-bind="validationElement: paymentOrder.fromParty.address.street"> 
+                        <div class="controls"> 
+                            <div class="span4"> 
+                                <input type="text" id="payerAddress" data-bind="value: paymentOrder.fromParty.address.street, enable: !$root.uneditablePayerData(), validationTooltip: paymentOrder.fromParty.address.street" class="input-block-level small" maxlength="50" data-original-title="" title=""> 
+                            </div> 
+                        </div> 
+                    </div> 
+                </div> 
+                <!-- END payerAddress --> 
+                <!-- payerCity --> 
+                <div class="row"> 
+                    <div class="span2"> 
+                        <label class="control-label" for="payerCity" data-bind="text: $parent.payerCityTitle">Mjesto</label> 
+                    </div> 
+                    <div class="control-group" data-validationelement="paymentOrder.fromParty.address.city" data-bind="validationElement: paymentOrder.fromParty.address.city"> 
+                        <div class="controls"> 
+                            <div class="span4"> 
+                                <input type="text" id="payerCity" data-bind="value: paymentOrder.fromParty.address.city, enable: !$root.uneditablePayerData(), validationTooltip: paymentOrder.fromParty.address.city" class="input-block-level small" maxlength="30" data-original-title="" title=""> 
+                            </div> 
+                        </div> 
+                    </div> 
+                </div> 
+                <!-- END payerCity --> 
+                <!-- accountID --> 
+                <div class="row"> 
+                    <div class="span2"> 
+                        <label class="control-label" for="accountId" data-bind="text: $parent.accountTitle">Račun</label> 
+                    </div> 
+                    <div class="control-group" data-validationelement="paymentOrder.fromAccount.bankAccountInfo.bankAccountId" data-bind="validationElement: paymentOrder.fromAccount.bankAccountInfo.bankAccountId"> 
+                        <div class="controls"> 
+                            <div class="span4"> 
+                                <select id="accountId" class="input-block-level small" data-bind="options: $parent.bankAccounts, optionsText: 'accountNicknameWithBalance', optionsValue: 'accountIdWithCurrency', value: $root.selectedFromAccount, event: {change: $parent.changeAccount}, validationTooltip: paymentOrder.fromAccount.bankAccountInfo.bankAccountId" data-original-title="" title=""><option value="3218350192;HRK">Moj tekući [23.512,82 Kn]</option><option value="3102063567;HRK">Moj žiro [642,56 Kn]</option><option value="20193034884;EUR">Moj devizni [363,20 EUR]</option><option value="20193034884;USD">Moj devizni [0,00 USD]</option></select> 
+                            </div> 
+                        </div> 
+                    </div> 
+                </div> 
+                <!-- END accountID --> 
+                <div class="row" data-bind="visible: fromAccountCurrencyCode() !== 'HRK'" style="display: none;"> 
+                    <div class="span2"> 
+                        <label class="control-label" for="feeAccountId" data-bind="localize: 'domesticPayment.feeAccount.title'">Račun za naknadu</label> 
+                    </div> 
+                    <div class="control-group" data-validationelement="feeAccountId" data-bind="validationElement: feeAccountId"> 
+                        <div class="controls"> 
+                            <div class="span4"> 
+                                <select id="feeAccountId" class="input-block-level small" data-bind="options: $parent.feeAccounts, optionsText: 'accountNicknameWithBalance', optionsValue: 'accountId', value: feeAccountId, validationTooltip: feeAccountId" data-original-title="" title=""></select> 
+                            </div> 
+                        </div> 
+                    </div> 
+                </div> 
+                <!-- trading giro account selected --> 
+                <div data-bind="visible: selectedTradingGiroAccount" style="display: none;"> 
+                    <div class="row"> 
+                        <div class="span2"> 
+                            <label class="control-label" for="payerCallOnNumber" data-bind="text: $parent.payerModelTitle">Model i poziv na broj zaduženja</label> 
+                        </div> 
+                        <div class="control-group" data-validationelement="paymentOrder.payerCallOnNumber" data-bind="validationElement: paymentOrder.payerCallOnNumber"> 
+                            <div class="controls controls-row"> 
+                                <!-- payerModelPrefix --> 
+                                <div class="span1"> 
+                                    <select class="input-block-level small" id="payerModelPrefix" disabled="" data-bind="options: $parent.payeeModelPrefixes, optionsText: 'text', optionsValue: 'id', value: payerModelPrefix"><option value="HR">HR</option><option value="RF">RF</option></select> 
+                                </div> 
+                                <!-- payerModelSufix --> 
+                                <div class="span1"> 
+                                    <input class="input-block-level small" type="text" id="payerModel" data-bind="value: payerModelSufix, validationTooltip: paymentOrder.payerCallOnNumber" maxlength="2" data-original-title="" title=""> 
+                                </div> 
+                                <!-- payerCallOnNumber --> 
+                                <div class="span2"> 
+                                    <input class="input-block-level small" id="payerCallOnNumber" type="text" data-bind="value: paymentOrder.payerCallOnNumber, validationTooltip: paymentOrder.payerCallOnNumber" maxlength="22" data-original-title="" title=""> 
+                                </div> 
+                            </div> 
+                        </div> 
+                    </div> 
+                    <!-- referenceMark --> 
+                    <div class="row"> 
+                        <div class="span2"> 
+                            <label class="control-label" for="referenceMark" data-bind="text: $parent.referenceMarkTitle">Vezna oznaka</label> 
+                        </div> 
+                        <div class="control-group" data-validationelement="paymentOrder.referenceMark" data-bind="validationElement: paymentOrder.referenceMark"> 
+                            <div class="controls"> 
+                                <div class="span4"> 
+                                    <select class="input-block-level small" id="referenceMark" data-bind="enable: !$root.editingShopPaymentOrder(), options: $parent.referenceMarks, optionsText: 'text', optionsValue: 'id', value: paymentOrder.referenceMark, event: {change: $parent.changeReferenceMark}, optionsCaption: ' ', validationTooltip: paymentOrder.referenceMark" data-original-title="" title=""><option value=""> </option><option value="16">16 - uplata plaće</option><option value="90">90 - kompenzacija</option><option value="33">33 - ostalo</option></select> 
+                                </div> 
+                            </div> 
+                        </div> 
+                    </div> 
+                    <!-- END referenceMark --> 
+                </div> 
+                <!-- END trading giro account selected --> 
+            </fieldset> 
+        </div>
+
+        <div class="span6"> 
+            <fieldset> 
+                <legend data-bind="text: $parent.payeeSectionTitle" style="margin-bottom:20px">Primatelj</legend> 
+                <div class="row" data-bind="visible: !$root.editingShopPaymentOrder()"> 
+                    <!-- bankPrefix --> 
+                    <div class="control-group" data-validationelement="paymentOrder.toAccount.bankAccountInfo.bankAccountId" data-bind="validationElement: bankAccountId"> 
+                        <div class="span2"> 
+                            <label class="control-label" for="bankPrefix" data-bind="html: $parent.payeeBankTitle">Račun primatelja/IBAN&nbsp;<a style="font-weight: bold" onclick="sirius.util.showTooltipHelp(this, 'domesticPayment.help.chooseBank');"><i style="font-size: initial" class="fui-info"></i></a></label> 
+                        </div> 
+                        <div class="controls controls-row"> 
+                            <div class="span3"> 
+                                <input id="payeeAccount" style="text-transform: uppercase" type="text" class="input-block-level small" data-bind="value: bankAccountId, enable: !$root.editingShopPaymentOrder() &amp;&amp; !$root.uneditablePayeeAccount(), validationTooltip: bankAccountId" maxlength="34" data-original-title="" title=""> 
+                            </div> 
+                            <div> 
+                                <label class="pull-right" style="padding-top: 5px;"> <a href="" style="margin-left: 5px;" data-bind="visible: !$root.uneditablePayeeAccount(), click: $root.toggleShowMyAccountsList, text: $root.myAccountsLabel">Moji računi</a></label> 
+                                <div class="pull-right" data-bind="visible: $root.showMyAccountsList()" style="display: none;"> 
+                                    <ul class="typeahead typeahead-long dropdown-menu" style="display: block;" data-bind="foreach: $parent.myBankAccounts"> 
+                                        <li data-bind="attr: { 'data-value': $data.accountIban}" data-value="HR8323400093218350192"> <a href="" data-bind="click: $root.selectMyAccountAsRecipient"> <strong data-bind="text: $data.accountNicknameWithBalance">Moj tekući [23.512,82 Kn]</strong> </a> </li> 
+
+                                        <li data-bind="attr: { 'data-value': $data.accountIban}" data-value="HR8423400093102063567"> <a href="" data-bind="click: $root.selectMyAccountAsRecipient"> <strong data-bind="text: $data.accountNicknameWithBalance">Moj žiro [642,56 Kn]</strong> </a> </li> 
+                                    </ul> 
+                                </div> 
+                            </div> 
+                        </div> 
+                        <!-- convert bban to iban button --> 
+                        <div class="span2"></div> 
+                        <div class="controls-row" data-bind="visible: bbanToAccountEntered" style="display: none;"> 
+                            <a id="convertBtn" class="span2" href="#" data-bind="click: $parent.convertToIban"> <span data-bind="localize: 'domesticPayment.button.convertToIban'">Promijeni u IBAN</span> </a> 
+                        </div> 
+                    </div> 
+                    <!-- END bankPrefix --> 
+                </div> 
+                <div class="row"> 
+                    <!-- modelPrefix --> 
+                    <div class="control-group" data-validationelement="paymentOrder.payeeCallOnNumber" data-bind="validationElement: paymentOrder.payeeCallOnNumber"> 
+                        <div class="span2"> 
+                            <label class="control-label" for="payeeCallOnNumber" data-bind="html: $parent.payeeCallOnNumberTitle">Model i poziv na broj&nbsp;<a style="font-weight: bold" onclick="sirius.util.showTooltipHelp(this, 'domesticPayment.help.callOnNumber');"><i style="font-size: initial" class="fui-info"></i></a></label> 
+                        </div> 
+                        <div class="controls controls-row"> 
+                            <div class="span1"> 
+                                <select class="input-block-level small" style="min-width: 55px;" id="modelPrefix" disabled="" data-bind="options: $parent.payeeModelPrefixes, optionsText: 'text', optionsValue: 'id', value: modelPrefix"><option value="HR">HR</option><option value="RF">RF</option></select> 
+                            </div> 
+                            <div class="span1"> 
+                                <input class="input-block-level small" type="text" id="paymentModel" data-bind="value: modelSufix, enable: !$root.editingShopPaymentOrder(), validationTooltip: paymentOrder.payeeCallOnNumber" maxlength="2" data-original-title="" title=""> 
+                            </div> 
+                            <div class="span2"> 
+                                <input class="input-block-level small" style="min-width: 90px;" id="payeeCallOnNumber" type="text" data-bind="value: paymentOrder.payeeCallOnNumber, enable: !$root.editingShopPaymentOrder(), validationTooltip: paymentOrder.payeeCallOnNumber" maxlength="22" data-original-title="" title=""> 
+                            </div> 
+                        </div> 
+                    </div> 
+                </div> 
+                <div class="row"> 
+                    <!-- payeeName --> 
+                    <div class="span2"> 
+                        <label class="control-label" for="payeeName" data-bind="text: $parent.payeeNameTitle">Primatelj</label> 
+                    </div> 
+                    <div class="control-group" data-validationelement="paymentOrder.toParty.fullName" data-bind="validationElement: paymentOrder.toParty.fullName"> 
+                        <div class="controls"> 
+                            <div class="span4"> 
+                                <input type="text" id="payeeName" data-bind="value: paymentOrder.toParty.fullName, enable: mustEnterRecipientData, validationTooltip: paymentOrder.toParty.fullName" class="input-block-level small" maxlength="100" data-original-title="" title=""> 
+                            </div> 
+                        </div> 
+                    </div> 
+                    <!-- END payeeName --> 
+                </div> 
+                <!-- payeeCity --> 
+                <div class="row"> 
+                    <div class="span2"> 
+                        <label class="control-label" for="payeeCity" data-bind="text: $parent.payeeCityTitle">Mjesto</label> 
+                    </div> 
+                    <div class="control-group" data-validationelement="paymentOrder.toParty.address.city" data-bind="validationElement: paymentOrder.toParty.address.city"> 
+                        <div class="controls"> 
+                            <div class="span4"> 
+                                <input type="text" id="payeeCity" data-bind="value: paymentOrder.toParty.address.city, enable: mustEnterRecipientData, validationTooltip: paymentOrder.toParty.address.city" class="input-block-level small" maxlength="31" data-original-title="" title=""> 
+                            </div> 
+                        </div> 
+                    </div> 
+                </div> 
+                <!-- END payeeCity --> 
+            </fieldset> 
+        </div>
+    </div>
+</template>

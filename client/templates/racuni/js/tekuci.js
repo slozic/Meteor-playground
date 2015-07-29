@@ -1,5 +1,3 @@
-Template.tekuci.helpers({
-    
-});
+
 
 
