@@ -12,3 +12,4 @@ accounts-password
 accounts-ui
 iron:router
 http
+simple:reactive-method

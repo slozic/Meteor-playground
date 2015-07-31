@@ -16,3 +16,12 @@ ul li{
 a:hover{
     text-decoration: none!important;
 }
+
+.signin{
+    padding-left:280px;
+    padding-top: 10px;
+}
+
+.logo{
+    padding-top: 20px;
+}

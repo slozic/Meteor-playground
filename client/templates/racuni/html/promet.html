@@ -1,14 +1,16 @@
 <template name="promet">
     <table class="table table-condensed table-hover">
         <thead><tr>
-                <th>Author</th>
-                <th>Title</th>
-                <th>Url</th>
+                <th>Datum</th>
+                <th>Svrha</th>
+                <th>Isplata</th>
+                <th>Uplata</th>
+                <th>Stanje</th>
             </tr>
         </thead>
         <tbody>
             {{#each prometi}}
-            <tr><td>{{author}}</td><td>{{title}}</td><td>{{url}}</td></tr>
+            <tr><td>{{datum}}</td><td>{{svrha}}</td><td>{{isplata}}</td><td>{{uplata}}</td><td>{{stanje}}</td></tr>
             {{/each}}
         </tbody>
     </table>

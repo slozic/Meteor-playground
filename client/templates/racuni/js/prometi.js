@@ -1,18 +1,17 @@
 var prometList = [
     {
-        title: 'Introducing Telescope',
-        author: 'Sacha Greif',
-        url: 'http://sachagreif.com/introducing-telescope/'
+        datum: '20.06.2015',
+        svrha: 'Uplata na racun',
+        uplata: '1000.00',
+        isplata: '',
+        stanje: '3050.00'
     },
     {
-        title: 'Meteor',
-        author: 'Tom Coleman',
-        url: 'http://meteor.com'
-    },
-    {
-        title: 'The Meteor Book',
-        author: 'Tom Coleman',
-        url: 'http://themeteorbook.com'
+        datum: '11.05.2015',
+        svrha: 'Instrukcije naknada',
+        uplata: '500.00',
+        isplata: '200.00',
+        stanje: '1050.00'
     }
 ];
 
