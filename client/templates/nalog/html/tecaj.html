@@ -1,0 +1,31 @@
+<template name="tecaj">
+    <div class="row">
+        <div class="container-fluid">
+            <div class="panel panel-default">
+                <h5 class="panel-heading"><b>Tečajna lista na dan - 25.09.2015</b></h5>
+                <table class="table table-condensed table-hover">
+                    <thead>
+                        <tr>
+                            <th>Valuta</th>
+                            <th>Jedinica</th>
+                            <th>Kupovni</th>
+                            <th>Srednji</th>
+                            <th>Prodajni</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each tecajList}}
+                        <tr class="tecajRow">
+                            <td>{{currency_code}}</td>
+                            <td>{{unit_value}}</td>
+                            <td>{{buying_rate}}</td>
+                            <td>{{median_rate}}</td>
+                            <td>{{selling_rate}}</td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</template>
