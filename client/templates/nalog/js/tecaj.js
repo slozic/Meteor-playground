@@ -1,6 +1,9 @@
 Template.tecaj.helpers({
     tecajList: function() {
-        return ReactiveMethod.call('getTecajnaListaHNB');
+        return ReactiveMethod.call('getTecajnaListaHNB', moment(new Date()).format('YYYY-MM-DD'));
+    },
+    dateToday: function() {
+        return new Date().toDateString();
     }
 });
 

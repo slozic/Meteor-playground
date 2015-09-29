@@ -11,15 +11,28 @@ Meteor.methods({
         }
     },
 
-    getTecajnaListaHNB: function () {
+    getTecajnaListaHNB: function (datum) {
         if(Meteor.isServer){
             this.unblock();
             try {
-                var result = HTTP.call("GET", "http://hnbex.eu/api/v1/rates/daily/", {params: {date: "2015-09-24"}});
+                var result = HTTP.call("GET", "http://hnbex.eu/api/v1/rates/daily/", {params: {date: datum}});
                 return result.data;
             } catch (e) {
                 return false;
             }
         }
-    }
+    },
+
+    getKreditnaIstorija: function (komitent) {
+        if (Meteor.isServer) {
+            this.unblock();
+            try {
+                var result = HTTP.call("GET", "http://localhost:8080/krediti/rest/kreditService/getKreditnaIstorija", {params: {sifraKomitenta: komitent}});
+                return result.data;
+            } catch (e) {
+                return false;
+            }
+        }
+    }    
+
 });

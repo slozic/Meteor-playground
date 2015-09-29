@@ -1,0 +1,46 @@
+<template name="osobniKrediti">
+    <div class="row">
+        <div class="container-fluid">
+            <div class="panel panel-default">
+                <h5 class="panel-heading"><b>Osobni krediti</b></h5>
+                <form class="form-horizontal col-xs-2">
+                    <div class="form-group">
+                        <label for="komitent" class="control-label">Šifra komitenta</label>
+                        <input type="text" id="komitent" class="form-control" value="{{sifraKomitenta}}" />
+                    </div>
+                </form>
+                <table class="table table-condensed table-hover">
+                    <thead>
+                        <tr>
+                            <th>Partija</th>
+                            <th>Naziv plasmana</th>
+                            <th>Datum isplate</th>
+                            <th>Iznos</th>
+                            <th>Broj mjeseci</th>
+                            <th>Visina rate</th>
+                            <th>Ostatak duga</th>
+                            <th>Urednost otplate</th>
+                            <th>Datum dospijeća</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each kreditnaIstorija}}
+                        <tr>
+                            <td>{{brojPartije}}</td>
+                            <td>{{nazivPlasmana}}</td>
+                            <td>{{formatDate datumIsplate}}</td>
+                            <td>{{iznos}}</td>
+                            <td>{{brojMjeseci}}</td>
+                            <td>{{visinaRate}}</td>
+                            <td>{{ostatakDuga}}</td>
+                            <td>{{urednostOtplate}}</td>
+                            <td>{{formatDate datumDospijeca}}</td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+            </div>
+            <div class="loading"></div>
+        </div>
+    </div>
+</template>

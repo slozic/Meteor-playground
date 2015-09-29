@@ -25,3 +25,10 @@ a:hover{
 .logo{
     padding-top: 20px;
 }
+
+.loading-spinner{
+	background-image: url('/img/loading_spinner.gif');
+	background-repeat: no-repeat;
+	background-position: center;
+	height: 100px;
+}

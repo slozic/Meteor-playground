@@ -1,7 +1,7 @@
 <template name="header">
     <nav class="row navbar">
         <div class="navbar-collapse">
-            <ul class="nav navbar-nav">             
+            <ul class="nav navbar-nav">
                 <li class="navbar-header dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Računi <span class="caret"></span></a>
                     <ul class="dropdown-menu">
@@ -21,9 +21,15 @@
                     </ul>
                 </li>
                 <li class="active"><a href="#">Štednja <span class="sr-only">(current)</span></a></li>
-                <li class="active"><a href="#">Kartice <span class="sr-only">(current)</span></a></li>               
                 <li class="navbar-header dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Postavke <span class="caret"></span></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Krediti <span class="sr-only">(current)</span></a>
+                    <ul class="dropdown-menu">
+                        <li><a id="osobni-krediti" href="{{pathFor 'osobniKrediti'}}">Osobni krediti</a></li>
+                    </ul>
+                </li>
+                <li class="active"><a href="#">Kartice <span class="sr-only">(current)</span></a></li>
+                <li class="navbar-header dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Postavke <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a id="osobni-podaci" href="{{pathFor 'osobniPodaci'}}">Osobni podaci</a></li>
                     </ul>
