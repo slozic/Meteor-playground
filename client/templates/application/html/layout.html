@@ -1,7 +1,7 @@
 <template name="layout">
     <div class="container">
         <div class="row">
-            <div class="col-xs-12">
+            <div class="col-xs-12 pad-0">
                 <div class="col-xs-4  pull-right logo">
                     <img src="/img/logo.png" alt="logo" />
                 </div>
@@ -13,6 +13,9 @@
         {{> header}}
         <div id="main" class="container">
             {{> yield}}
+        </div>
+        <div id="notifications">
+            {{> notifications}}
         </div>
     </div>
 </template>

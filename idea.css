@@ -32,3 +32,30 @@ a:hover{
 	background-position: center;
 	height: 100px;
 }
+
+.top-buffer { margin-top:40px; }
+
+table tr{
+    cursor: pointer;
+}
+
+th{
+    background-color: lightgray;
+}
+
+.hidden{
+    visibility: hidden;
+}
+
+ul.notifications {
+    position: fixed;
+    width: 400px;
+}
+
+.help-block{
+    color: red;
+}
+
+.pad-0{
+    padding-left: 0px;
+}
