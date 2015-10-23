@@ -17,3 +17,5 @@ mrt:moment
 gfk:notifications
 alethes:pages
 aslagle:reactive-table
+meteorsteam:meteor-postgres
+numtel:pg
