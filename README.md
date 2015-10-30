@@ -9,20 +9,20 @@ My simple Meteor js project for learning purposes. Using latest [Meteor version]
 
 - Tables in meteor, routing, events, templates, publish/subscribe model etc.
 - Using REST apis, GET request on input change
-- CRUD example using mongoDb, postgres in progress
+- CRUD example using mongodb, postgres in progress
 
 ##Installation
 
 Prerequisites:
 
-[Git](https://git-scm.com/)
-[Meteor](https://www.meteor.com/install)
-[Mongo DB](https://www.mongodb.org/)
+- [Git](https://git-scm.com/)
+- [Meteor](https://www.meteor.com/install)
+- [Mongo DB](https://www.mongodb.org/)
 
 Clone and start the app:
 
 ```
-git clone https://github.com/slozic/Meteor-playground.git
-cd Meteor-playground.git
-meteor
+$ git clone https://github.com/slozic/Meteor-playground.git
+$ cd Meteor-playground.git
+$ meteor
 ```

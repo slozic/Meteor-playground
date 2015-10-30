@@ -6,17 +6,17 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Računi <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="{{pathFor 'tekuci'}}">Tekući</a></li>
-                        <li><a href="#">Žiro</a></li>
-                        <li><a href="#">Devizni</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="#">Ostalo</a></li>
+                        <li class="hidden"><a href="#">Žiro</a></li>
+                        <li class="hidden"><a href="#">Devizni</a></li>
+                        <li role="separator" class="divider hiden"></li>
+                        <li class="hidden"><a href="#">Ostalo</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Plaćanja <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="{{pathFor 'nalog'}}">Novi nalog</a></li>
-                        <li><a href="#">Mjenjačnica</a></li>
+                        <li class="hidden"><a href="#">Mjenjačnica</a></li>
                         <li><a href="{{pathFor 'tecaj'}}">Tečajna lista</a></li>
                     </ul>
                 </li>
